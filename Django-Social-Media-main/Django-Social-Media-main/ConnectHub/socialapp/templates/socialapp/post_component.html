@@ -1,0 +1,47 @@
+<div class="main-content">
+    {% for post in posts %}
+  
+    <div class="post">
+      <div class="postchild">
+          <div class="user-info">
+              <img src="{{post.owner.profile_pic.url}}" alt="User Picture" class="user-pic">
+              <a href="{% url 'profile' post.owner.id %}"><span>{{post.owner.name}}</a> posted {{post.created |timesince}} ago</span>
+          </div>
+          {% if request.user == post.owner %}
+          <div class="post-menu">
+              <button class="btn post-menu-btn">&#8942;</button>
+              <div class="post-menu-content">
+                  <a href="{% url 'update-Post' post.id %}">Edit</a>
+                  <a href="{% url 'delete-Post' post.id %}">Delete</a>
+              </div>
+          </div>
+          {% endif %}
+      </div>
+       
+        <p>{{post.desc}}</p>
+        <a href="{% url 'post' post.id %}"><img src="{{post.image.url}}" alt="Sample Image"></a>
+        <div class="post-options">
+            <a href="#">
+                <i class="far fa-thumbs-up"></i> Like 
+            </a>
+            <a href="{% url 'post' post.id %}">
+                <i class="far fa-comment"></i>{{post.comment_set.all.count}}   Comments
+            </a>
+            <a href="#">
+                <i class="fas fa-share"></i> Share
+            </a>
+            
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script>
+      let btns = document.getElementsByClassName('btn');
+      
+      for (let i = 0; i < btns.length; i++) {
+          btns[i].addEventListener('click', function() {
+              let postContent = document.getElementsByClassName('post-menu-content')[i];
+              postContent.style.display = (postContent.style.display === 'block') ? 'none' : 'block';
+          });
+      }
+      </script>

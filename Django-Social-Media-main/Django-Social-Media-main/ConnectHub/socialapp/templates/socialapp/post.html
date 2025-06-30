@@ -1,0 +1,73 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+
+
+<div class="main-content">
+    <div class="post">
+      <div class="postchild">
+          <div class="user-info">
+              <img src="{{post.owner.profile_pic.url}}" alt="User Picture" class="user-pic">
+              <a href="{% url 'profile' post.owner.id %}"><span>{{post.owner.name}}</a> posted {{post.created |timesince}} ago</span>
+          </div>
+          {% if request.user == post.owner %}
+          <div class="post-menu">
+              <button class="btn post-menu-btn">&#8942;</button>
+              <div class="post-menu-content">
+                  <a href="{% url 'update-Post' post.id %}">Edit</a>
+                  <a href="{% url 'delete-Post' post.id %}">Delete</a>
+              </div>
+          </div>
+          {% endif %}
+      </div>
+       
+        <p>{{post.desc}}</p>
+        <img src="{{post.image.url}}" alt="Sample Image">
+        <div class="post-options">
+            <a href="#">
+                <i class="far fa-thumbs-up"></i> Like
+            </a>
+            <a href="#">
+                <i class="far fa-comment"></i>{{post_comments.count}} Comments
+            </a>
+            <a href="#">
+                <i class="fas fa-share"></i> Share
+            </a>
+            
+        </div>
+    </div>
+
+    {% if request.user.is_authenticated %}
+    <div class="comments">
+        <h3>Comments</h3>
+        {% for comment in post_comments %}
+            <div class="comment">
+                <a href="{% url 'profile' comment.owner.id %}"><strong>{{ comment.owner.name }}</strong></a>
+                <span>{{ comment.body }}</span>
+            </div>
+        {% endfor %}
+
+        <!-- Comment Form -->
+        <form method="post" action="">
+            {% csrf_token %}
+            <textarea name="body" placeholder="Add a comment..." ></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+    </div>
+    {% endif %}
+  </div>
+  <script type="text/javascript"> 
+      let btns = document.getElementsByClassName('btn');
+      
+      for (let i = 0; i < btns.length; i++) {
+          btns[i].addEventListener('click', function() {
+              let postContent = document.getElementsByClassName('post-menu-content')[i];
+              postContent.style.display = (postContent.style.display === 'block') ? 'none' : 'block';
+          });
+      }
+
+      
+
+      </script>
+{% endblock content %}

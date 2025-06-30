@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- Main Section -->
+<main class="inbox my-xl">
+  <div class="content-box">
+    <h3 class="inbox__title">New Notifications(<span>{{notifications.count}}</span>)</h3>
+    <ul class="messages">
+      {% for notification in notifications %}
+      <li class="message message--unread">
+        <a href="{% url 'post' notification.post.id %}">
+          <span class="message__author">{{notification.owner.name}}</span>
+          <span class="message__subject">{{notification.body}}</span>
+          <span class="message__date">{{notification.created |timesince}} ago</span>
+        </a>
+      </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,621 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+display: flex;
+background-color: hsl(205, 64%, 78%);
+}
+
+/* Vertical Navbar */
+.navbar {
+width: 200px;
+background-color: rgba(111, 103, 76, 0.369);
+height: 100vh;
+color: white;
+padding-top: 20px;
+box-shadow: 2px 0 5px rgba(187, 169, 169, 0.1);
+}
+
+.navbar a {
+text-decoration: none;
+color: white;
+padding: 10px;
+display: block;
+transition: background 0.3s;
+}
+
+.navbar a:hover {
+background-color: #555;
+}
+
+navbar-center {
+  flex-grow: 1;
+}
+
+.navbar form {
+  display: flex;
+}
+
+.navbar input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.navbar button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.searchbar{
+  border-radius: 5px;
+background: #FFF;
+width: 510px;
+height: 35px;
+}
+.navbar-center{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  position: absolute;
+  margin: 20px;
+  left: 500px;
+}
+
+.navbar button:hover {
+  background-color: #777;
+}
+
+/* Assuming your SVG images should have a max height of 20px and be vertically aligned to the middle */
+.navbar a img {
+  max-height: 20px;
+  vertical-align: middle;
+  margin-right: 5px; /* Adjust as needed to create space between the image and text */
+}
+
+/* Optional: Add some padding to the navbar links */
+.navbar a {
+  padding: 8px;
+  text-decoration: none; /* Remove underlines from links */
+  color: black; /* Set the text color */
+}
+
+
+/* Main Content - Posts */
+.main-content {
+flex: 1;
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 70px;
+}
+.search-input {
+  width: 70%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Style for the search icon */
+.search-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+/* Sample Post Styling */
+.post {
+width: 100%;
+background-color: #fff;
+margin-bottom: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+padding: 20px;
+max-width: 600px;
+box-sizing: border-box;
+}
+
+.post img.user-pic {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+margin-right: 10px;
+object-fit: cover;
+}
+
+.post .user-info {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.post .user-info span {
+font-size: 14px;
+color: #555;
+margin-right: 10px;
+font-weight: bold;
+}
+
+.post img {
+width: 100%;
+max-height: 400px;
+object-fit: cover;
+border-radius: 8px;
+margin-top: 15px;
+}
+
+.post-options {
+display: flex;
+justify-content: space-between;
+margin-top: 10px;
+}
+
+.post-options a {
+text-decoration: none;
+color: #555;
+display: flex;
+align-items: center;
+}
+
+.post-options a:hover {
+color: #385898;
+}
+
+.post-options i {
+margin-right: 5px;
+}
+
+.post-options span {
+color: #888;
+font-size: 12px;
+}
+
+.post-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.post-menu-btn {
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.post-menu-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.post-menu-content a {
+  color: #333;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+.postchild{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-menu-content a:hover {
+  background-color: #ddd;
+}
+
+/* .post-menu:hover .post-menu-content {
+  display: block;
+} */
+
+
+/* User Profile Container */
+.user-profile {
+max-width: 800px;
+width: 100%;
+}
+
+/* Profile Header */
+.profile-header {
+display: flex;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.profile-avatar img {
+border-radius: 50%;
+width: 80px;
+height: 80px;
+object-fit: cover;
+margin-right: 20px;
+}
+
+.user-details {
+flex-grow: 1;
+}
+
+.user-name {
+font-size: 24px;
+font-weight: bold;
+}
+
+.user-role {
+font-size: 18px;
+color: #888;
+}
+
+/* Bio Section */
+.bio-section {
+display: flex;
+flex-direction: column;
+padding: 0 20px;
+}
+
+.bio-item {
+align-self: stretch;
+display: flex;
+width: 100%;
+justify-content: space-between;
+gap: 7px;
+margin: 28px -20px 0 0;
+}
+
+h3{
+color: #490057;
+  align-self: stretch;
+  margin-right: -20px;
+  width: 100%;
+  font: 700 20px/27px Nunito, sans-serif;
+}
+
+.img-14 {
+aspect-ratio: 1;
+object-fit: contain;
+object-position: center;
+width: 24px;
+overflow: hidden;
+max-width: 100%;
+}
+
+.bio-text 
+{
+color: #490057;
+  opacity: 0.7;
+  align-self: start;
+  flex-grow: 1;
+  white-space: nowrap;
+  font: 400 16px/22px Nunito, sans-serif;
+}
+
+.bio-location,
+.bio-email,
+.bio-phone {
+align-self: stretch;
+display: flex;
+width: 100%;
+justify-content: space-between;
+gap: 11px;
+margin: 30px -20px 0 0;
+}
+
+.img-16,
+.img-17,
+.img-18 {
+aspect-ratio: 1;
+object-fit: contain;
+object-position: center;
+width: 16px;
+overflow: hidden;
+max-width: 100%;
+}
+
+.location-text,
+.email-text,
+.phone-text {
+color: #490057;
+opacity: 0.7;
+align-self: start;
+flex-grow: 1;
+white-space: nowrap;
+font: 400 16px/22px Nunito, sans-serif;
+}
+
+@media (max-width: 991px) {
+.location-text,
+.email-text,
+.phone-text {
+    white-space: initial;
+}
+}
+
+.edit-bio a {
+display: inline-block;
+padding: 10px 15px;
+background-color: #490057; 
+color: #fff; 
+text-decoration: none;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+.edit-bio a:hover {
+background-color: #2980b9; 
+}
+.edit-bio{
+margin-top: 20px;
+}
+
+/*--------------------------- Form -------------------------------------------------*/
+
+/* Form Container Styles */
+.form-container {
+  max-width: 300px; 
+  margin: auto;
+  padding: 10px 20px; 
+  background-color: #fff; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50vh; 
+  transform: translateY(-50%);
+}
+
+
+/* Form Group Styles */
+.form__group {
+  margin-bottom: 20px;
+}
+
+/* Label Styles */
+.form__group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Input Styles */
+.form__group input,
+.form__group textarea,
+.form__group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddddddc8;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Submit Button Styles */
+input[type="submit"] {
+  background-color: #3498db; /* Adjust the background color as needed */
+  color: #fff; /* Text color */
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9; /* Change the background color on hover */
+}
+
+/* Button Styles */
+.form__group button {
+  background-color: #3498db; /* Adjust the background color as needed */
+  color: #fff; /* Text color */
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.form__group button:hover {
+  background-color: #2980b9; /* Change the background color on hover */
+}
+
+/* Form Footer Styles */
+.form__footer {
+  margin-top: 15px; /* Adjust the margin-top value for spacing */
+  font-size: 14px;
+}
+
+.form__footer a {
+  color: #3498db; /* Adjust the link color as needed */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form__footer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+/* Form Header Styles */
+.form-header {
+  text-align: center;
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+.form-header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #3498db; /* Adjust the color as needed */
+}
+
+.form-header p {
+  font-size: 16px;
+  color: #333; 
+  margin-bottom: 10px;
+}
+
+blockquote {
+  font-style: italic;
+  color: #777; 
+  font-size: 14px;
+  margin-top: 0;
+}
+
+/* Button Styles */
+.form__group button {
+  background-color: #3498db; 
+  color: #fff; /* Text color */
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.form__group button:hover {
+  background-color: #2980b9; 
+}
+
+/* Form Footer Styles */
+.form__footer {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form__footer a {
+  color: #3498db; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form__footer a:hover {
+  text-decoration: underline; 
+}
+
+/* comments */
+/* Style for the comment section */
+.comments {
+  margin-top: 20px;
+  width: 50%; /* Adjust the width as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style for individual comments */
+.comment {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.comment strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.comment span {
+  display: block;
+}
+
+/* Style for the comment form */
+.comments form {
+  margin-top: 10px;
+  width: 100%; /* Adjust the width as needed */
+}
+
+.comments textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.comments button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comments button:hover {
+  background-color: #45a049;
+}
+
+/* ----------------Notifications */
+.inbox {
+  height: 90vh;
+}
+
+.inbox__title {
+  font-size: 2.rem;
+  font-weight: 700;
+  color: var(--color-sub);
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.inbox__title span {
+  color: var(--color-main);
+}
+
+.messages {
+  list-style: none;
+  background: var(--color-white);
+  padding: 1rem;
+  border: 2px solid var(--color-light);
+  border-radius: 0.7rem;
+}
+
+.message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid var(--color-white-light);
+}
+
+.message > a {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-main);
+}
+
+.message--unread a span {
+  font-weight: 700;
+  color: var(--color-sub);
+}
+
+.message__author,
+.message__subject,
+.message__date {
+  flex-basis: 30%; /* Adjust as needed */
+}
+
+.message__date {
+  text-align: right;
+}
+
+.message > a span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Optional: Add hover effect for better interactivity */
+.message:hover {
+  background-color: var(--color-light);
+  transition: background-color 0.3s ease;
+}

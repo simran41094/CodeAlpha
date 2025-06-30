@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% if page == 'login' %}
+
+<div class="form-container">
+    <div class="form-header">
+        <h2>Log In</h2>
+        <p>Welcome back to ConnectHub</p>
+        <blockquote>
+            "Connecting with friends has never been easier."
+        </blockquote>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form__group">
+            <label for="login-username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form__group">
+            <label for="login-password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form__group">
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+    <div class="form__group form__footer">
+        Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+</div>
+
+{% else %}
+<div class="form-container">
+    <div class="form-header">
+        <h2>Sign Up</h2>
+        <p>Welcome to ConnectHub</p>
+        <blockquote>
+            "Join us and start connecting with friends today."
+        </blockquote>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form__group">
+            <label for="signup-username">{{field.label}}</label>
+            {{field}}
+        </div>
+        {% endfor %}
+        <div class="form__group">
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="form__group form__footer">
+        Already have an account? <a href="{% url 'login' %}">Log In</a>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock content %}

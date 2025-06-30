@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="main-content">
+  <div class="user-profile">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <img src="{{user.profile_pic.url}}" alt="User Profile Picture" class="img">
+      </div>
+      <div class="user-details">
+        <div class="user-name">{{user.name}}</div>
+        <div class="user-role">{{user.bio}}</div>
+      </div>
+    </div>
+
+    <!-- Bio Section -->
+    <div class="bio-section">
+      <h3>About</h3>
+      <div class="bio-item">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f89ebd1d-6bc4-4d66-ad8e-7cc63675f45e?" class="img-14">
+
+        <div class="bio-text">{{user.gender}}</div>
+      </div>
+
+      <div class="bio-location">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a31b6c39-d381-4d27-9558-bfd4ffaf94a8?" class="img-16">
+        <div class="location-text">{{user.address}}</div>
+      </div>
+      <div class="bio-email">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/51b4f349-00ce-4699-9460-c6890fd7282d?" class="img-17">
+        <div class="email-text">{{user.email}}</div>
+      </div>
+      <div class="bio-phone">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/57b23002-61ae-4ac5-aa01-1db2560bfa6e?" class="img-18">
+        <div class="phone-text">{{user.phone_number}}</div>
+      </div>
+      {% if request.user == user %}
+      <div class="edit-bio">
+        <a href="{% url 'edit-Bio' user.id %}">Edit Bio</a>
+    </div>
+    {% endif %}
+    </div>
+
+    <!-- User's Posts Section -->
+    
+    <div class="user-posts">
+      {% include 'socialapp/post_component.html' %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="navbar-center">
+    <!-- Add the search bar here -->
+    <form action="{% url 'home' %}" method="get">
+      <input type="text" name="query" class="searchbar" placeholder="Search For Posts..">
+      <button type="submit">&#128269;</button>
+    </form>
+  </div>
+{% include 'socialapp/post_component.html' %}
+    
+<script type="text/javascript">
+  let url = `ws://${window.location.host}/ws/socket-server/`
+
+const chatSocket = new WebSocket(url)
+
+chatSocket.onmessage = function(e){
+  let data = JSON.parse(e.data)
+  consle.log('Data: ', data)
+}
+</script>
+{% endblock content %}
